@@ -289,8 +289,10 @@ public class Main {
         }
         return list;
     }
-
-
+    // This method returns the most common number in three arrays
+    private int[] commonNumber(int[] num1, int[] num2, int[] num3){
+        return new int[]{-1,-1};
+    }
 
     // Space & Time complexity of above code is explained below.
     /*The time and space complexity of the provided code are as follows:
