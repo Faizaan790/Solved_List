@@ -325,4 +325,27 @@ In summary, the time complexity of the code is O(m * n * log k), and the space c
             System.out.println(suggestedProducts);
         }*/
 
+    //Given an integer, n,
+    // return the difference between the product and sum of its digits.
+    public static int diff(int n){
+        return (product(n)) - (sum(n));
+    }
+    private static int product(int n){
+        int product = 1;
+        while(n > 0){
+            int rem = n % 10;
+            n /= 10;
+            product = product*rem;
+        }
+        return product;
+    }
+    private static int sum(int n){
+        int sum = 0;
+        while(n > 0){
+            int rem = n % 10;
+            n /= 10;
+            sum = sum+rem;
+        }
+        return sum;
+    }
 }
