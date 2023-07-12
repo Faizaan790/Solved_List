@@ -348,4 +348,20 @@ In summary, the time complexity of the code is O(m * n * log k), and the space c
     private int[] commonNumber(int[] num1, int[] num2, int[] num3){
         return new int[]{-1,-1};
     }
+    // S.C = O(n) as we are using extra space
+    // T.C = O(n*denom) as we are traversing through the array that we have then we are traversing through the denoms
+    private static int minimumNumOfCoins(int n, int[] denoms){
+        int[] dp = new int[n+1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+
+        for(int denom: denoms){
+            for(int i = denom; i <= n; i++){
+                if(dp[i-denom] != Integer.MAX_VALUE){
+                    dp[i] = Math.min(dp[i], dp[i-denom]+1);
+                }
+            }
+        }
+        return dp[n] != Integer.MAX_VALUE ? dp[n] : -1;
+    }
 }
