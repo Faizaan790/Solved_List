@@ -364,4 +364,26 @@ In summary, the time complexity of the code is O(m * n * log k), and the space c
         }
         return dp[n] != Integer.MAX_VALUE ? dp[n] : -1;
     }
+    /*Given an integer array, nums, replace each element with the largest value that occurs to the right of it and return the array.
+    Note: The rightmost element should be replaced with -1.
+
+    Ex: Given the following nums…
+
+    nums = [5, 2, 3], return [3, 3, -1].
+    Ex: Given the following nums…
+
+    nums = [10, 2, 5, 8, 9], return [9,9,9,9,-1].*/
+    public static int[] replaceWithRightMax(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+
+        int max = -1; // Rightmost element should be replaced with -1
+
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] = max;
+            max = Math.max(max, nums[i]);
+        }
+
+        return result;
+    }
 }
