@@ -88,6 +88,39 @@ public class Main {
         }
         return sortedArray;
     }
+    public static int firstNonRepeatingChar(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            boolean isUnique = true;
+            for (int j = 0; j < s.length(); j++) {
+                if (i != j && s.charAt(i) == s.charAt(j)) {
+                    isUnique = false;
+                    break;
+                }
+            }
+            if (isUnique) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static int firstNonRepeatingChar1(String s) {
+        HashMap<Character, Integer> charCount = new HashMap<>();
+
+        // Count the occurrences of each character in the string
+        for (char c : s.toCharArray()) {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+
+        // Find the first non-repeating character
+        for (int i = 0; i < s.length(); i++) {
+            if (charCount.get(s.charAt(i)) == 1) {
+                return i;
+            }
+        }
+
+        // If no non-repeating character is found, return -1
+        return -1;
+    }
     // Valid Parenthesis
     // T.C: O(n) && S.C: O(n)
     public boolean isValid(String s){
