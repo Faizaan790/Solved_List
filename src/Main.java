@@ -42,8 +42,49 @@ public class Main {
         }
         return new int[0];
     }
+    private int romanToInt(String str) {
+        Map<Character, Integer> myMap = new HashMap<>();
 
-    public static String isPalindrome(String word) {
+        myMap.put('I', 1);
+        myMap.put('V', 5);
+        myMap.put('X', 10);
+        myMap.put('L', 50);
+        myMap.put('C', 100);
+        myMap.put('D', 500);
+        myMap.put('M', 1000);
+
+        int ans = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (i < str.length() - 1 && myMap.get(str.charAt(i)) < myMap.get(str.charAt(i + 1))) {
+                ans -= myMap.get(str.charAt(i));
+            } else {
+                ans += myMap.get(str.charAt(i));
+            }
+        }
+
+        return ans;
+    }
+
+    // isPalindrome
+    private boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+
+        long reversed = 0;
+        long temp = x;
+
+        while (temp != 0) {
+            int digit = (int) (temp % 10);
+            reversed = reversed * 10 + digit;
+            temp /= 10;
+        }
+
+        return (reversed == x);
+    }
+
+    public String isPalindrome(String word) {
         if (word == null || word.length() == 0) {
             return "No";
         }
