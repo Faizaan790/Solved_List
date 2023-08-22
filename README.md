@@ -1,6 +1,6 @@
 # Problem-Solving Favorites
 
-This is a list of favorite coding problems from platforms like LeetCode and HackerRank, along with their corresponding solutions.
+This is a list of my favorite coding problems from platforms like LeetCode and HackerRank, along with their corresponding solutions.
 
 ## List of Problems
 
