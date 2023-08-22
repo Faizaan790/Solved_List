@@ -485,6 +485,39 @@ In summary, the time complexity of the code is O(m * n * log k), and the space c
 
         return result;
     }
+    public String checkGameState(int[][] moves) {
+        char[][] board = new char[3][3];
+        char currentPlayer = 'X';
+
+        for (int[] move : moves) {
+            int row = move[0];
+            int col = move[1];
+
+            board[row][col] = currentPlayer;
+
+            // Check for a win
+            if (checkWin(board, currentPlayer, row, col)) {
+                return (currentPlayer == 'X') ? "A" : "B";
+            }
+
+            // Switch player
+            currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+        }
+
+        if (moves.length == 9) {
+            return "Draw"; // All cells are filled, and no winner
+        } else {
+            return "Pending"; // Game not finished yet
+        }
+    }
+
+    private boolean checkWin(char[][] board, char player, int row, int col) {
+        // Check row, column, and diagonal for a win
+        return (board[row][0] == player && board[row][1] == player && board[row][2] == player) ||
+                (board[0][col] == player && board[1][col] == player && board[2][col] == player) ||
+                (row == col && board[0][0] == player && board[1][1] == player && board[2][2] == player) ||
+                (row + col == 2 && board[0][2] == player && board[1][1] == player && board[2][0] == player);
+    }
     // Edit Distance LeetCode
     
 }
