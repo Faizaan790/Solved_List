@@ -68,5 +68,14 @@ This is a list of my favorite coding problems from platforms like LeetCode and H
     - Problem: Replace each element in an array with the rightmost element greater than the current element.
     - Platform: Custom
       
+17. **Tic Tac Toe**
+    - Problem: Given a list of moves in a game of tic tac toe, return that state of the game.
+    - If player A (the first player to move with X characters) wins, return ”A”.
+    - If player B (the second player to move with O characters) wins, return ”B”.
+    - Otherwise, if it’s a draw, return ”Draw” and if the game hasn’t finished, return ”Pending”.
+    - Ex: Given the following moves…
+    - moves = [[0,0],[1,0],[1,1],[2,0],[2,2]], return "A" (player A won with three Xs being connected along the diagonal).
+    - Platform: Daily Byte 
+      
 **More to come 👍**
 
