@@ -551,7 +551,6 @@ In summary, the time complexity of the code is O(m * n * log k), and the space c
      *
      * M = Number of rows in the board. N = Number of columns in the board.
      */
-    class Solution {
         public int countBattleships(char[][] board) {
             if (board == null) {
                 throw new IllegalArgumentException("Input is null");
@@ -576,7 +575,7 @@ In summary, the time complexity of the code is O(m * n * log k), and the space c
 
             return count;
         }
-    }
+
     
     
 }
