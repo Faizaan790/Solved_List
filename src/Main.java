@@ -551,31 +551,72 @@ In summary, the time complexity of the code is O(m * n * log k), and the space c
      *
      * M = Number of rows in the board. N = Number of columns in the board.
      */
-        public int countBattleships(char[][] board) {
-            if (board == null) {
-                throw new IllegalArgumentException("Input is null");
-            }
-            if (board.length == 0 || board[0].length == 0) {
+    public int countBattleships(char[][] board) {
+        if (board == null) {
+            throw new IllegalArgumentException("Input is null");
+         }
+        if (board.length == 0 || board[0].length == 0) {
                 return 0;
-            }
+        }
 
-            int rows = board.length;
-            int cols = board[0].length;
-            int count = 0;
+        int rows = board.length;
+        int cols = board[0].length;
+        int count = 0;
 
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    if (board[i][j] == 'X'
-                            && (j == cols - 1 || board[i][j + 1] == '.')
-                            && (i == rows - 1 || board[i + 1][j] == '.')) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (board[i][j] == 'X'
+                        && (j == cols - 1 || board[i][j + 1] == '.')
+                        && (i == rows - 1 || board[i + 1][j] == '.')) {
                         count++;
                     }
                 }
             }
 
-            return count;
-        }
+        return count;
+    }
 
-    
+    //T.C: O(m+n), S.C: O(1)
+    public static void merge(int[] num1, int m, int[] num2, int n){
+        int i = m-1;
+        int j = n-1;
+        int k = (m+n)-1;
+        while(j >= 0){
+            if(i >= 0 && num1[i] > num2[j]){
+                num1[k--] = num1[i--];
+            }else{
+                num1[k--] = num2[j--];
+            }
+        }
+        System.out.println(Arrays.toString(num1));
+    }
+    //Remove Element L.C 27
+    //T.C: O(n), SC: O(1)
+    public int removeElement(int[] nums, int val) {
+        int writer = 0;
+        for(int reader = 0; reader < nums.length; reader++){
+            if(nums[reader] != val){
+                nums[writer] = nums[reader];
+                writer++;
+            }
+        }
+        return writer;
+
+    }
+    //Removing Duplicates from a Sorted Array L.C: 26
+    //T.C: O(n), S.C O(1)
+    public int removeDuplicates(int[] nums){
+        if(nums.length == 0){
+            return 0;
+        }
+        int insertIndex = 1;
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i] != nums[i-1]){
+                nums[insertIndex] = nums[i];
+                insertIndex++;
+            }
+        }
+        return insertIndex;
+    }
     
 }
