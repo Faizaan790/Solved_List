@@ -618,5 +618,20 @@ In summary, the time complexity of the code is O(m * n * log k), and the space c
         }
         return insertIndex;
     }
+    public int removeDuplicates(int[] nums) {
+        int j = 1;
+        int count = 1;
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i] == nums[i-1]){
+                count++;
+            }else{
+                count = 1;
+            }
+            if(count <= 2){
+                nums[j++] = nums[i];
+            }
+        }
+        return j;
+    }
     
 }
